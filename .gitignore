@@ -1,5 +1,7 @@
 .gradle
 build/
+java_ft.iml
+
 
 # Ignore Gradle GUI config
 gradle-app.setting
