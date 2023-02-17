@@ -14,3 +14,6 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+addressbook-web-tests/chromedriver.exe
+.idea/modules/addressbook-web-tests.main.iml
+.idea/modules/addressbook-web-tests.test.iml
