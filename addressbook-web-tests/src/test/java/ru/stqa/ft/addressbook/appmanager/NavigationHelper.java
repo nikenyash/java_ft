@@ -18,10 +18,6 @@ public class NavigationHelper extends BaseHelper {
     click(By.linkText("groups"));
   }
 
-  public void initContactCreation() {
-    click(By.linkText("add new"));
-  }
-
   public void returnToHomePage() {
     if (isElementPresent(By.id("maintable"))) {
       return;
