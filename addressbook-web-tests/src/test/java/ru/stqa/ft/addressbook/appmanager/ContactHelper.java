@@ -70,4 +70,8 @@ public class ContactHelper extends BaseHelper{
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
+
+  public boolean isGroupExist() {
+   return isElementPresent(By.xpath("//*/text()[normalize-space(.)='test1']/parent::*"));
+  }
 }
