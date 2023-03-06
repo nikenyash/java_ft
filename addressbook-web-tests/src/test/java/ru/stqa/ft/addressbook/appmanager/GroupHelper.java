@@ -54,4 +54,8 @@ public class GroupHelper extends BaseHelper {
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
   }
+
+  public String getGroupName() {
+      return wd.findElement(By.className("group")).getText();
+  }
 }
