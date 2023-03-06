@@ -71,7 +71,4 @@ public class ContactHelper extends BaseHelper{
     return isElementPresent(By.name("selected[]"));
   }
 
-  public boolean isGroupExist() {
-   return isElementPresent(By.xpath("//*/text()[normalize-space(.)='test1']/parent::*"));
-  }
 }
