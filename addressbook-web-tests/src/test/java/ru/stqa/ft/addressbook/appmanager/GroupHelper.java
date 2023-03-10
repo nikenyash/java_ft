@@ -58,4 +58,8 @@ public class GroupHelper extends BaseHelper {
   public String getGroupName() {
       return wd.findElement(By.className("group")).getText();
   }
+
+  public int getGroupCount() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
 }
