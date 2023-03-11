@@ -1,9 +1,12 @@
 package ru.stqa.ft.addressbook.tests;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.ft.addressbook.model.ContactData;
 import ru.stqa.ft.addressbook.model.GroupData;
+
+import java.util.List;
 
 public class ContactDeletionTests extends TestBase{
 
@@ -19,10 +22,20 @@ public class ContactDeletionTests extends TestBase{
 
       app.getContactHelper().createContact(new ContactData("Nikita", "JR", "Shirobokov", "GPB", "Moscow, Golutvinskiy pereulok, 1", "909090", "89099090065", "88005550099", "abv@gg.ru", "bhss@fs.ru", groupname));
     }
- //   app.getContactHelper().selectContact(before.size() - 1);
+
+    app.getNavigationHelper().returnToHomePage();
+    List<ContactData> before = app.getContactHelper().getContactList();
+
+    app.getContactHelper().selectContact(before.size() - 1);
     app.getContactHelper().deleteSelectedContact();
     app.getNavigationHelper().acceptAlert();
     app.getNavigationHelper().returnToHomePage();
+
+    List<ContactData> after = app.getContactHelper().getContactList();
+
+    Assert.assertEquals(after.size(), before.size() - 1);
+    before.remove(before.size() - 1);
+    Assert.assertEquals(before, after);
 
   }
 
