@@ -19,7 +19,7 @@ public class ContactDeletionTests extends TestBase{
 
       app.getContactHelper().createContact(new ContactData("Nikita", "JR", "Shirobokov", "GPB", "Moscow, Golutvinskiy pereulok, 1", "909090", "89099090065", "88005550099", "abv@gg.ru", "bhss@fs.ru", groupname));
     }
-    app.getContactHelper().selectContact();
+ //   app.getContactHelper().selectContact(before.size() - 1);
     app.getContactHelper().deleteSelectedContact();
     app.getNavigationHelper().acceptAlert();
     app.getNavigationHelper().returnToHomePage();
