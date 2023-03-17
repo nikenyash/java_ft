@@ -17,3 +17,7 @@ gradle-app.setting
 addressbook-web-tests/chromedriver.exe
 .idea/modules/addressbook-web-tests.main.iml
 .idea/modules/addressbook-web-tests.test.iml
+.idea/compiler.xml
+.DS_Store
+.idea/libraries
+.idea/modules
