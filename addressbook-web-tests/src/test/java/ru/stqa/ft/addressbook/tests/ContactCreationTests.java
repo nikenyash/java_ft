@@ -14,7 +14,7 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation() throws Exception {
     app.goTo().groupPage();
     if (app.group().list().size() == 0) {
-      app.group().create(new GroupData("x", "test2", "test3"));
+      app.group().create(new GroupData().withName("test1"));
     }
     String groupname = app.group().getGroupName();
 
