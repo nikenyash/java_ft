@@ -73,7 +73,7 @@ public class GroupHelper extends BaseHelper {
     return isElementPresent(By.name("selected[]"));
   }
 
-  public String getGroupName() {
+  public String groupName() {
       return wd.findElement(By.className("group")).getText();
   }
 
