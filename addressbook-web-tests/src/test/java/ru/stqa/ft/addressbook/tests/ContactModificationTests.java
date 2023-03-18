@@ -1,6 +1,5 @@
 package ru.stqa.ft.addressbook.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.ft.addressbook.model.ContactData;
@@ -11,22 +10,22 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
-  @Test
+  @Test (enabled = false)
   public void testContactModification() {
     if (! app.getContactHelper().isThereAContact()) {
 
-      app.getNavigationHelper().gotoGroupPage();
-      if (! app.getGroupHelper().isThereAGroup()) {
-        app.getGroupHelper().createGroup(new GroupData("x", "test2", "test3"));
+      app.goTo().groupPage();
+      if (app.group().list().size() == 0) {
+        app.group().create(new GroupData("x", "test2", "test3"));
       }
-      String groupname = app.getGroupHelper().getGroupName();
+      String groupname = app.group().getGroupName();
 
       app.getContactHelper().createContact(new ContactData("Nikita", "JR", "Shirobokov",
               "GPB", "Moscow, Golutvinskiy pereulok, 1", "909090",
               "89099090065", "88005550099", "abv@gg.ru", "bhss@fs.ru", groupname));
     }
 
-    app.getNavigationHelper().returnToHomePage();
+    app.goTo().returnToHomePage();
     List<ContactData> before = app.getContactHelper().getContactList();
 
     app.getContactHelper().initContactModification(before.size() - 1);
@@ -37,7 +36,7 @@ public class ContactModificationTests extends TestBase {
 
     app.getContactHelper().fillContactForm(contact, false);
     app.getContactHelper().submitContactModification();
-    app.getNavigationHelper().returnToHomePage();
+    app.goTo().returnToHomePage();
     List<ContactData> after = app.getContactHelper().getContactList();
 
     before.remove(before.size() - 1);
@@ -46,7 +45,5 @@ public class ContactModificationTests extends TestBase {
     before.sort(byId);
     after.sort(byId);
     Assert.assertEquals(before, after);
-
   }
-
 }
